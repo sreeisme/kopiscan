@@ -1,4 +1,4 @@
-# Menuly — CLAUDE.md
+# Kopiscan — CLAUDE.md
 
 Multi-tenant SaaS that turns a restaurant's physical menu into a QR ordering web app (Singapore market).
 Diners scan a table QR → browse → order / call waiter / request bill. Staff see a live board. Owners edit the menu,

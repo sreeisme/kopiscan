@@ -29,7 +29,7 @@ export default async function AdminPage() {
   return (
     <main className="mx-auto max-w-6xl px-4 py-6">
       <div className="mb-4 flex justify-between text-sm">
-        <span className="font-bold">Menuly · Platform admin</span>
+        <span className="font-bold">Kopiscan · Platform admin</span>
         <Link href="/staff" className="underline">
           Dashboard →
         </Link>

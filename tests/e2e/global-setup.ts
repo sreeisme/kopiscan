@@ -12,8 +12,8 @@ export default async function globalSetup() {
     slug: "e2e-pro",
     plan: "pro",
     name: "E2E Pro Diner",
-    ownerEmail: "e2e-owner@menuly.test",
-    staffEmail: "e2e-staff@menuly.test",
+    ownerEmail: "e2e-owner@kopiscan.test",
+    staffEmail: "e2e-staff@kopiscan.test",
     password: PASSWORD,
   });
   const basic = await seedDemo({ slug: "e2e-basic", plan: "basic", name: "E2E Basic", tableCount: 10 });

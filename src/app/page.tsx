@@ -5,20 +5,20 @@ import { PLAN_INFO, PLANS, LIMITS, type Plan } from "@/lib/plans";
 const EXTRAS: Record<Plan, string[]> = {
   basic: ["Logo, brand colour & 6 styles", "Today's printable summary"],
   pro: ["Sizes, spice levels & add-ons", "Full branding: fonts, layouts, cover photo", "30 days of summaries"],
-  premium: ["Remove “Powered by Menuly”", "Your logo inside the QR codes", "Analytics: top dishes & peak hours", "Full history + CSV export"],
+  premium: ["Remove “Powered by Kopiscan”", "Your logo inside the QR codes", "Analytics: top dishes & peak hours", "Full history + CSV export"],
 };
 
 const lim = (n: number | null, word: string) => (n === null ? `Unlimited ${word}` : `Up to ${n} ${word}`);
 
 export default function Home() {
   const wa = publicEnv.NEXT_PUBLIC_WHATSAPP_NUMBER.replace(/\D/g, "");
-  const waLink = wa ? `https://wa.me/${wa}?text=${encodeURIComponent("Hi Menuly, I'd like to digitise my menu.")}` : null;
+  const waLink = wa ? `https://wa.me/${wa}?text=${encodeURIComponent("Hi Kopiscan, I'd like to digitise my menu.")}` : null;
 
   return (
     <main className="bg-white">
       <section className="mx-auto max-w-5xl px-6 pt-16 pb-12">
         <nav className="mb-14 flex items-center justify-between">
-          <span className="text-xl font-bold">Menuly</span>
+          <span className="text-xl font-bold">Kopiscan</span>
           <Link href="/login" className="text-sm font-medium underline">
             Restaurant login
           </Link>
@@ -78,7 +78,7 @@ export default function Home() {
       </section>
 
       <footer className="border-t border-neutral-200 px-6 py-8 text-center text-sm text-neutral-500">
-        © {new Date().getFullYear()} Menuly · Singapore
+        © {new Date().getFullYear()} Kopiscan · Singapore
         {wa && <> · WhatsApp +{wa}</>}
       </footer>
     </main>

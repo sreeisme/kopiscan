@@ -5,7 +5,7 @@ import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import type { RestaurantRow } from "@/lib/restaurant";
 
-export const ACTIVE_RID_COOKIE = "menuly_rid";
+export const ACTIVE_RID_COOKIE = "kopiscan_rid";
 
 export type MemberContext = {
   userId: string;

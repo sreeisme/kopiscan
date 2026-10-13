@@ -12,7 +12,7 @@ export default async function DashLayout({ children }: { children: React.ReactNo
       <header className="no-print sticky top-0 z-30 border-b border-neutral-200 bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-4 gap-y-2 px-4 py-3">
           <Link href="/staff" className="text-lg font-bold">
-            Menuly
+            Kopiscan
           </Link>
           <RestaurantSwitcher current={restaurant.id} name={restaurant.name} memberships={ctx.memberships} />
           <span className="rounded-full bg-neutral-100 px-2 py-0.5 text-xs font-semibold text-neutral-700">{PLAN_INFO[restaurant.plan].name}</span>

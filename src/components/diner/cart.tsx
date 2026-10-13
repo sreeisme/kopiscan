@@ -27,7 +27,7 @@ type CartCtx = {
 const Ctx = createContext<CartCtx | null>(null);
 
 export function CartProvider({ slug, children }: { slug: string; children: React.ReactNode }) {
-  const storageKey = `menuly_cart_${slug}`;
+  const storageKey = `kopiscan_cart_${slug}`;
   const [lines, setLines] = useState<CartEntry[]>([]);
   const [note, setNote] = useState("");
   const [loaded, setLoaded] = useState(false);

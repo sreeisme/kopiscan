@@ -57,7 +57,7 @@ test("server ignores client prices and rejects sold-out items", async ({ page })
   await page.evaluate(
     ([slug, nasiId, bandungId]) => {
       localStorage.setItem(
-        `menuly_cart_${slug}`,
+        `kopiscan_cart_${slug}`,
         JSON.stringify({
           lines: [
             { key: `${nasiId}:`, itemId: nasiId, name: "Nasi Lemak", qty: 1, optionIds: [], optionLabels: [], unitPriceCents: 1 },

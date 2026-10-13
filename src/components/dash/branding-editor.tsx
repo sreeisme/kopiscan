@@ -254,10 +254,10 @@ export function BrandingEditor({
             {canRemoveBranding ? (
               <label className="flex items-center gap-2 text-sm">
                 <input type="checkbox" checked={theme.hideBranding} onChange={(e) => set("hideBranding", e.target.checked)} />
-                Hide &quot;Powered by Menuly&quot;
+                Hide &quot;Powered by Kopiscan&quot;
               </label>
             ) : (
-              <Upsell feature="removeBranding">Remove &quot;Powered by Menuly&quot; and put your logo inside the QR codes.</Upsell>
+              <Upsell feature="removeBranding">Remove &quot;Powered by Kopiscan&quot; and put your logo inside the QR codes.</Upsell>
             )}
           </Card>
         )}

@@ -5,7 +5,7 @@ import "./globals.css";
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: { default: "Menuly — QR menus & table ordering", template: "%s · Menuly" },
+  title: { default: "Kopiscan — QR menus & table ordering", template: "%s · Kopiscan" },
   description: "Turn your physical menu into a QR ordering app. Built for Singapore restaurants.",
 };
 

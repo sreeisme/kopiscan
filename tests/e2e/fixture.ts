@@ -7,8 +7,8 @@ type Seeded = { restaurantId: string; slug: string; tables: { id: string; label:
 export const fixture = (): { pro: Seeded; basic: Seeded } => JSON.parse(readFileSync(path.join(__dirname, ".fixture.json"), "utf8"));
 
 export const PASSWORD = "e2e-Test-Password-123";
-export const OWNER = "e2e-owner@menuly.test";
-export const STAFF = "e2e-staff@menuly.test";
+export const OWNER = "e2e-owner@kopiscan.test";
+export const STAFF = "e2e-staff@kopiscan.test";
 
 export const serviceDb = () =>
   createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!, { auth: { persistSession: false } });

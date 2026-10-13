@@ -1,10 +1,10 @@
-# Menuly
+# Kopiscan
 
 QR menus & table ordering for restaurants. See `CLAUDE.md` for architecture and rules.
 
 ## First-time setup (≈30 min)
 
-### 1. Supabase (create TWO projects: `menuly-dev` and `menuly-prod`, region **Singapore**)
+### 1. Supabase (create TWO projects: `kopiscan-dev` and `kopiscan-prod`, region **Singapore**)
 For each project:
 1. **Project Settings → API**: copy the URL, `anon` key and `service_role` key.
 2. **Project Settings → Database → Connection string → Session pooler**: copy the URI (with your DB password) → `SUPABASE_DB_URL`.
