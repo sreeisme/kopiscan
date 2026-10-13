@@ -1,4 +1,4 @@
--- Menuly initial schema: tenancy, menu, tables, sessions, orders, service requests,
+-- Kopiscan initial schema: tenancy, menu, tables, sessions, orders, service requests,
 -- plan limits, rate limiting, RLS, realtime and storage.
 
 create extension if not exists pgcrypto;

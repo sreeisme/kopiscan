@@ -10,7 +10,7 @@ const key = () => new TextEncoder().encode(serverEnv.SESSION_SECRET);
 
 export type TableSessionClaims = { sid: string; rid: string; tid: string };
 
-export const cookieName = (slug: string) => `menuly_t_${slug}`;
+export const cookieName = (slug: string) => `kopiscan_t_${slug}`;
 
 export async function signSession(claims: TableSessionClaims, ttlSecs = SESSION_TTL_SECS): Promise<string> {
   return new SignJWT(claims)

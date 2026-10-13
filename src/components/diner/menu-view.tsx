@@ -98,7 +98,7 @@ export function MenuView(props: DinerProps) {
 
         {!theme.hideBranding && (
           <p className="pt-6 text-center text-xs text-m-muted">
-            Powered by <span className="font-semibold">Menuly</span>
+            Powered by <span className="font-semibold">Kopiscan</span>
           </p>
         )}
       </main>

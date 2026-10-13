@@ -28,7 +28,7 @@ export default function SetPasswordPage() {
     <main className="mx-auto flex min-h-dvh max-w-sm flex-col justify-center gap-6 p-6">
       <div>
         <div className="text-2xl font-bold">Set your password</div>
-        <p className="text-sm text-neutral-600">You will use this to sign in to Menuly.</p>
+        <p className="text-sm text-neutral-600">You will use this to sign in to Kopiscan.</p>
       </div>
       <form onSubmit={submit} className="space-y-3">
         <input className={input} type="password" autoComplete="new-password" placeholder="New password" value={pw} onChange={(e) => setPw(e.target.value)} />
