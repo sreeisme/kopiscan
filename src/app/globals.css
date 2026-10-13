@@ -1,26 +1,35 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/*
+ * Diner theme tokens. Values are injected per restaurant on the diner root
+ * (see src/lib/theme/resolve.ts → themeToCssVars). Diner components must use
+ * ONLY these utilities: bg-m-*, text-m-*, border-m-*, rounded-m, font-m-heading/body.
+ */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-m-primary: var(--m-primary);
+  --color-m-on-primary: var(--m-on-primary);
+  --color-m-bg: var(--m-bg);
+  --color-m-surface: var(--m-surface);
+  --color-m-text: var(--m-text);
+  --color-m-muted: var(--m-muted);
+  --color-m-accent: var(--m-accent);
+  --radius-m: var(--m-radius);
+  --font-m-heading: var(--m-font-heading);
+  --font-m-body: var(--m-font-body);
+  --font-sans: var(--font-geist-sans), system-ui, sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #fafafa;
+  color: #171717;
 }
+
+/* Dashboard print support (summary, QR table tents) */
+@media print {
+  .no-print { display: none !important; }
+  body { background: #fff; }
+  @page { margin: 12mm; }
+}
+
+@keyframes m-pulse { 0%,100% { box-shadow: 0 0 0 0 rgb(239 68 68 / .6); } 50% { box-shadow: 0 0 0 8px rgb(239 68 68 / 0); } }
+.m-attention { animation: m-pulse 1.4s ease-in-out infinite; }
