@@ -35,7 +35,7 @@ export function MenuView(props: DinerProps) {
       <header>
         {coverUrl && <img src={coverUrl} alt="" className="h-40 w-full object-cover sm:h-56" />}
         <div className="mx-auto flex max-w-2xl items-center gap-3 px-4 pt-5">
-          {logoUrl && <img src={logoUrl} alt={`${name} logo`} className="size-14 rounded-m bg-m-surface object-contain" />}
+          {logoUrl && <img src={logoUrl} alt={`${name} logo`} className="size-14 shrink-0 rounded-full bg-m-surface object-cover" />}
           <div className="min-w-0">
             <h1 className="font-m-heading text-2xl font-bold leading-tight">{name}</h1>
             {tableLabel && <p className="text-sm text-m-muted">Table {tableLabel}</p>}

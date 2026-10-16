@@ -114,7 +114,7 @@ export function BrandingEditor({
 
         <Card className="space-y-4">
           <h2 className="font-semibold">Logo &amp; colours</h2>
-          <Field label="Logo" hint="Square or wide PNG/JPG. Shown at the top of the menu and on table cards.">
+          <Field label="Logo" hint="Square PNG/JPG works best. Shown in a circle at the top of the menu, and on table cards.">
             <ImageUpload
               restaurantId={restaurantId}
               folder="brand"
