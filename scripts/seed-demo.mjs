@@ -97,7 +97,7 @@ export async function seedDemo({ slug = "demo-kopitiam", plan = "pro", name = "D
     await db
       .from("tables")
       .insert(Array.from({ length: tableCount }, (_, i) => ({ restaurant_id: r.id, label: String(i + 1), sort: i })))
-      .select("id, label, qr_token")
+      .select("id, label, qr_token, sort")
       .order("sort"),
   );
 
