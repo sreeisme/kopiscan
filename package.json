@@ -13,6 +13,7 @@
     "db:push": "node --env-file=.env.local scripts/db-push.mjs",
     "db:types": "node --env-file=.env.local scripts/db-push.mjs --types",
     "seed": "node --env-file=.env.local scripts/seed-demo.mjs",
+    "seed:superloco": "node --env-file=.env.local scripts/seed-super-loco.mjs",
     "make-admin": "node --env-file=.env.local scripts/make-admin.mjs",
     "check": "npm run typecheck && npm run lint && npm run test"
   },

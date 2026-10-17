@@ -43,3 +43,6 @@ next-env.d.ts
 tests/e2e/.fixture.json
 test-results/
 playwright-report/
+
+# Customer menus used for sales demos
+/Demo Rest/

@@ -23,6 +23,22 @@ test("anon key cannot read or write any table", async () => {
   expect(rpc.error).not.toBeNull();
 });
 
+test("demo requests are invisible to anon and non-admin users, and only the service role can write them", async () => {
+  const anon = anonDb();
+  expect((await anon.from("demo_requests").select("*").limit(1)).data ?? []).toHaveLength(0);
+  expect((await anon.from("demo_requests").insert({ name: "x", restaurant: "x", email: "x@x.co" })).error).not.toBeNull();
+
+  const svc = serviceDb();
+  const { data: row } = await svc.from("demo_requests").insert({ name: "e2e", restaurant: "e2e", email: "e2e@kopiscan.test" }).select("id").single();
+  try {
+    const owner = await userDb(OWNER);
+    expect((await owner.from("demo_requests").select("id").eq("id", row!.id)).data ?? []).toHaveLength(0);
+    expect((await owner.from("demo_requests").insert({ name: "x", restaurant: "x", email: "x@x.co" })).error).not.toBeNull();
+  } finally {
+    await svc.from("demo_requests").delete().eq("id", row!.id);
+  }
+});
+
 test("staff cannot see another restaurant's data or edit the menu", async () => {
   const { pro, basic } = fixture();
   const db = await userDb(STAFF);

@@ -1,8 +1,7 @@
 // Seed (or reset) a demo restaurant with menu, modifiers, tables and owner/staff logins.
 // Usage: npm run seed -- [--slug demo-kopitiam] [--plan pro]
-// Also imported by tests/e2e/global-setup.ts to build an isolated test fixture.
+// Also imported by tests/e2e/global-setup.ts and scripts/seed-super-loco.mjs.
 import { createClient } from "@supabase/supabase-js";
-import { pathToFileURL } from "node:url";
 
 const MENU = [
   {
@@ -53,10 +52,24 @@ const must = (r) => {
   return r.data;
 };
 
+const DEFAULT_SETTINGS = { pricesIncludeTax: false, serviceChargePct: 10, gstPct: 9, orderingEnabled: true };
+const DEFAULT_THEME = { labels: { welcome: "Order at your table — we'll bring it over!" } };
+
 /**
- * @param {{ slug?: string, plan?: "basic"|"pro"|"premium", name?: string, ownerEmail?: string, staffEmail?: string, password?: string, tableCount?: number }} [opts]
+ * @param {{ slug?: string, plan?: "basic"|"pro"|"premium", name?: string, ownerEmail?: string, staffEmail?: string, password?: string, tableCount?: number, menu?: typeof MENU, theme?: object, settings?: object }} [opts]
  */
-export async function seedDemo({ slug = "demo-kopitiam", plan = "pro", name = "Demo Kopitiam", ownerEmail, staffEmail, password, tableCount = 6 } = {}) {
+export async function seedDemo({
+  slug = "demo-kopitiam",
+  plan = "pro",
+  name = "Demo Kopitiam",
+  ownerEmail,
+  staffEmail,
+  password,
+  tableCount = 6,
+  menu = MENU,
+  theme = DEFAULT_THEME,
+  settings = DEFAULT_SETTINGS,
+} = {}) {
   const db = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY, { auth: { persistSession: false } });
 
   await db.from("restaurants").delete().eq("slug", slug); // cascades everything
@@ -67,14 +80,14 @@ export async function seedDemo({ slug = "demo-kopitiam", plan = "pro", name = "D
         slug,
         name,
         plan,
-        settings: { pricesIncludeTax: false, serviceChargePct: 10, gstPct: 9, orderingEnabled: true },
-        theme: { labels: { welcome: "Order at your table — we'll bring it over!" } },
+        settings,
+        theme,
       })
       .select("id")
       .single(),
   );
 
-  for (const [ci, cat] of MENU.entries()) {
+  for (const [ci, cat] of menu.entries()) {
     const c = must(await db.from("menu_categories").insert({ restaurant_id: r.id, name: cat.name, sort: ci }).select("id").single());
     for (const [ii, it] of cat.items.entries()) {
       const item = must(
@@ -113,8 +126,8 @@ export async function seedDemo({ slug = "demo-kopitiam", plan = "pro", name = "D
   return { restaurantId: r.id, slug, tables, ...users };
 }
 
-// CLI
-if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+// CLI. No `import.meta` / top-level await: Playwright's loader transpiles this file to CommonJS for tests/e2e/global-setup.ts.
+if (/seed-demo\.mjs$/.test(process.argv[1] ?? "")) void (async () => {
   const arg = (k, d) => {
     const i = process.argv.indexOf(`--${k}`);
     return i > 0 ? process.argv[i + 1] : d;
@@ -130,4 +143,4 @@ if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   console.log(`✔ Seeded ${res.slug}  →  ${site}/r/${res.slug}`);
   console.log("Scan links (open on your phone or in a browser to simulate a table):");
   for (const t of res.tables) console.log(`  Table ${t.label}: ${site}/t/${t.qr_token}`);
-}
+})();

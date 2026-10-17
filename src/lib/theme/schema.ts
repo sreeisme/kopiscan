@@ -11,6 +11,7 @@ export const FONTS = [
   "Montserrat",
   "DM Serif Display",
   "Space Grotesk",
+  "Oswald",
 ] as const;
 
 export const ThemeSchema = z.object({
