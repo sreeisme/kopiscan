@@ -3,6 +3,8 @@ import { checkThemeContrast, contrastRatio } from "@/lib/theme/contrast";
 import { DEFAULT_THEME } from "@/lib/theme/defaults";
 import { PRESETS } from "@/lib/theme/presets";
 import { mergeTheme, resolveTheme, themeToCssVars } from "@/lib/theme/resolve";
+import { ThemeSchema } from "@/lib/theme/schema";
+import { SUPER_LOCO_THEME } from "../../scripts/seed-super-loco.mjs";
 
 describe("theme", () => {
   it("returns defaults for empty / garbage input", () => {
@@ -38,6 +40,16 @@ describe("theme", () => {
     expect(pro.hideBranding).toBe(false);
 
     expect(resolveTheme(stored, "premium").hideBranding).toBe(true);
+  });
+
+  it("Super Loco demo theme is fully valid (mergeTheme would silently drop a bad section)", () => {
+    for (const [key, value] of Object.entries(SUPER_LOCO_THEME)) {
+      expect(ThemeSchema.shape[key as keyof typeof ThemeSchema.shape].safeParse(value).success, key).toBe(true);
+    }
+    const t = resolveTheme(SUPER_LOCO_THEME, "premium");
+    expect(t.font.heading).toBe("Oswald");
+    expect(t.labels.requestBill).toBe("La cuenta");
+    expect(checkThemeContrast(t.colors)).toEqual([]);
   });
 
   it("emits css vars", () => {

@@ -7,6 +7,7 @@ export const LIMITS = {
   orderPerTable: { limit: 20, windowSecs: 600 },
   requestPerSession: { limit: 1, windowSecs: 60 }, // per type → 60s cooldown
   requestPerTable: { limit: 6, windowSecs: 600 },
+  demoRequestPerIp: { limit: 3, windowSecs: 3600 },
 } as const;
 
 /** Returns true if allowed. Fails CLOSED if the DB call errors. */
