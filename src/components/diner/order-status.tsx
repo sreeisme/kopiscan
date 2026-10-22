@@ -45,8 +45,7 @@ export function OrderStatus({ slug, orderId, labels }: { slug: string; orderId: 
   return (
     <Wrap slug={slug}>
       <div className="rounded-m bg-m-surface p-5 text-center">
-        <div className="text-4xl">{o.status === "done" ? "🍽️" : o.status === "cancelled" ? "⚠️" : "✅"}</div>
-        <h1 className="mt-2 font-m-heading text-2xl font-bold">{o.status === "cancelled" ? "Order cancelled" : "Order received!"}</h1>
+        <h1 className="font-m-heading text-2xl font-bold">{o.status === "cancelled" ? "Order cancelled" : "Order received!"}</h1>
         <p className="text-sm text-m-muted">Order #{o.id.slice(0, 6).toUpperCase()}</p>
         {o.status === "cancelled" && <p className="mt-2 text-sm">Please speak to our staff for help.</p>}
       </div>

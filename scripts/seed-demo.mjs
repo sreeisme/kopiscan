@@ -140,7 +140,7 @@ if (/seed-demo\.mjs$/.test(process.argv[1] ?? "")) void (async () => {
     password: arg("password"),
   });
   const site = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
-  console.log(`✔ Seeded ${res.slug}  →  ${site}/r/${res.slug}`);
+  console.log(`Seeded ${res.slug}  →  ${site}/r/${res.slug}`);
   console.log("Scan links (open on your phone or in a browser to simulate a table):");
   for (const t of res.tables) console.log(`  Table ${t.label}: ${site}/t/${t.qr_token}`);
 })();

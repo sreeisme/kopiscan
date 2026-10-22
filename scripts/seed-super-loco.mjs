@@ -304,7 +304,7 @@ if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   });
   const site = arg("site", process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000");
   const items = SUPER_LOCO_MENU.reduce((n, c) => n + c.items.length, 0);
-  console.log(`✔ Seeded ${res.slug} (${SUPER_LOCO_MENU.length} categories, ${items} items)  →  ${site}/r/${res.slug}`);
+  console.log(`Seeded ${res.slug} (${SUPER_LOCO_MENU.length} categories, ${items} items)  →  ${site}/r/${res.slug}`);
   console.log(`  Owner: ${ownerEmail}   Staff: ${staffEmail}   Password: (the one you passed)   Login: ${site}/login`);
   console.log("Scan links:");
   for (const t of res.tables) console.log(`  Table ${t.label}: ${site}/t/${t.qr_token}`);

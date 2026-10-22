@@ -35,10 +35,10 @@ export function ServiceButtons({
   return (
     <div className="flex gap-2">
       <button className={cls} disabled={pending || cooldown.call_waiter} onClick={() => send("call_waiter")}>
-        🙋 {cooldown.call_waiter ? "Staff notified" : labels.callWaiter}
+        {cooldown.call_waiter ? "Staff notified" : labels.callWaiter}
       </button>
       <button className={cls} disabled={pending || cooldown.bill} onClick={() => send("bill")}>
-        🧾 {cooldown.bill ? "Bill requested" : labels.requestBill}
+        {cooldown.bill ? "Bill requested" : labels.requestBill}
       </button>
     </div>
   );

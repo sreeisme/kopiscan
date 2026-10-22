@@ -30,7 +30,7 @@ export default async function TablesPage() {
         actions={
           tables.length > 0 && (
             <Link className={btn.primary} href="/owner/tables/print" target="_blank">
-              🖨 Print table cards
+              Print table cards
             </Link>
           )
         }
