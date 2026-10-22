@@ -176,7 +176,7 @@ export function StaffBoard({ restaurantId, since, orderingEnabled }: { restauran
             ▶ Start shift (enable sound)
           </button>
         ) : (
-          <span className="rounded-lg bg-green-50 px-3 py-2 text-sm font-semibold text-green-800">🔔 Sound on · screen kept awake</span>
+          <span className="rounded-lg bg-green-50 px-3 py-2 text-sm font-semibold text-green-800">Sound on · screen kept awake</span>
         )}
         <span
           className={cx(
@@ -203,7 +203,7 @@ export function StaffBoard({ restaurantId, since, orderingEnabled }: { restauran
             >
               <div>
                 <div className="text-lg font-bold">Table {r.table_label}</div>
-                <div className="text-sm font-semibold">{r.type === "bill" ? "🧾 Bill requested" : "🙋 Calling for staff"}</div>
+                <div className="text-sm font-semibold">{r.type === "bill" ? "Bill requested" : "Calling for staff"}</div>
                 <div className="text-xs text-neutral-600">{ago(r.created_at, now)}</div>
               </div>
               <div className="flex flex-col gap-1">
@@ -318,7 +318,7 @@ function OrderCard({
           ))}
         </ul>
       )}
-      {o.note && !compact && <p className="mt-2 rounded bg-yellow-50 p-2 text-sm font-medium text-yellow-900">📝 {o.note}</p>}
+      {o.note && !compact && <p className="mt-2 rounded bg-yellow-50 p-2 text-sm font-medium text-yellow-900">Note: {o.note}</p>}
       <div className="mt-2 flex items-center justify-between text-xs text-neutral-500">
         <span>#{o.id.slice(0, 6).toUpperCase()}</span>
         <span>{formatSgd(o.subtotal_cents)}</span>

@@ -47,7 +47,7 @@ export function MenuView(props: DinerProps) {
       {!tableLabel && !preview && (
         <div className="mx-auto mt-4 max-w-2xl px-4">
           <p className="rounded-m border border-m-primary bg-m-surface p-3 text-sm">
-            📱 Scan the QR code on your table to place an order. You can browse the menu below.
+            Scan the QR code on your table to place an order. You can browse the menu below.
           </p>
         </div>
       )}

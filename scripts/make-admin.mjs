@@ -36,4 +36,4 @@ if (!user) {
 }
 const { error } = await db.from("platform_admins").upsert({ user_id: user.id });
 if (error) throw error;
-console.log(`✔ ${email} is now a platform admin. Sign in at /login, then open /admin.`);
+console.log(`${email} is now a platform admin. Sign in at /login, then open /admin.`);
